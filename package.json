@@ -1,0 +1,25 @@
+{
+  "name": "session_rattrapage",
+  "version": "1.0.0",
+  "description": "Souviens toi l'ete dernier",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kiwouz/session_rattrapage.git"
+  },
+  "keywords": [
+    "nodejs;",
+    "git;",
+    "docker;",
+    "expressjs"
+  ],
+  "author": "M1 Miage Evry promo 2019",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Kiwouz/session_rattrapage/issues"
+  },
+  "homepage": "https://github.com/Kiwouz/session_rattrapage#readme"
+}
