@@ -12,9 +12,32 @@ app.use(bodyParser.urlencoded({extended : true}));
 // ------------------------
 // ROUTES RESOURCES
 // ------------------------
-app.get('/', (req,res)=>{
-	console.log('hello');
-	res.status(200).json({"hello1" : "w1orld1"});
+var temp = [{
+	"id" : "1",
+	"nom" : "breda",
+	"prenom" : "laurent",
+	"ssn" : "1829913150257"
+}]
+
+
+app.get('/patients',(req, res)=>{
+	res.status(200).json(temp)
+})
+
+app.post('/patients',(req, res)=>{
+	res.status(200).json(req.body)
+})
+
+app.get('/patients/:idPatient',(req, res)=>{
+	res.status(200).json(temp.pop())
+})
+
+app.put('/patients/:idPatient',(req, res)=>{
+	res.status(204).json()
+})
+
+app.delete('/patients/:idPatient',(req, res)=>{
+	res.status(204).json()
 })
 
 // ------------------------
