@@ -21,5 +21,8 @@
   "bugs": {
     "url": "https://github.com/Kiwouz/session_rattrapage/issues"
   },
-  "homepage": "https://github.com/Kiwouz/session_rattrapage#readme"
+  "homepage": "https://github.com/Kiwouz/session_rattrapage#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
