@@ -1,0 +1,55 @@
+{
+	"info": {
+		"_postman_id": "c3e86ac5-703c-4b96-ad49-ac3b0ac26683",
+		"name": "Test API Rattrapage",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get Patients",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{API}}/patients/",
+					"host": [
+						"{{API}}"
+					],
+					"path": [
+						"patients",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Patient",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\" : 2,\n    \"nom\": \"toto\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{API}}/patients/",
+					"host": [
+						"{{API}}"
+					],
+					"path": [
+						"patients",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
