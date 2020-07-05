@@ -22,24 +22,48 @@ app.set('view engine', 'html');
 app.set('views', __dirname + '/templates');
 
 // ------------------------
-// ROUTES RESOURCES
+// RESOURCE PATIENT
 // ------------------------
-var temp = [{
-	"id" : "1",
-	"nom" : "breda",
-	"prenom" : "laurent",
-	"ssn" : "1829913150257"
-}]
+// --- Base de donnees
+let mongoose = require('mongoose');
+
+let database  = mongoose.connect("mongodb://localhost/demo",{
+    promiseLibrary: require('bluebird'),
+    useNewUrlParser: true
+});
+
+// --- Definition du models
+//--- Module dependencies
+const Schema	 	= mongoose.Schema;
+
+//------------------------------------------- Resources Schema
+let PatientSchema = new Schema({
+    id      : String,
+    nom		: String,
+    ssn     : String
+});
+
+mongoose.model('Patient', PatientSchema);
 
 app.get('/patients',(req, res)=>{
-	res.status(200).json(temp)
+	let Patient = mongoose.model('Patient')
+	Patient.find({}).then((result)=>{
+            res.status(200).json(result)
+        },(err)=>{
+            res.status(400).json(err)
+        })
 })
 
 app.post('/patients',(req, res)=>{
-	temp.push(req.body)
-	res.status(200).json(req.body)
+	let Patient = mongoose.model('Patient');
+	let myPatient = new Patient(req.body);
+        myPatient.save().then((result)=>{
+            res.status(200).json(myPatient)
+        },(err)=>{
+            res.status(400).json(err)
+        })
 })
-
+// --- TO DO ...
 app.get('/patients/:idPatient',(req, res)=>{
 	res.status(200).json(temp.pop())
 })
